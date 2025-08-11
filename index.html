@@ -1,97 +1,268 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Coqueta</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RopaChida - Tu estilo único</title>
   <style>
+    /* Reset básico */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffe0f0, #fce4ec);
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: #222;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #ffb6c1;
-      padding: 2rem;
-      text-align: center;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
       color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(255, 75, 43, 0.4);
     }
 
     header h1 {
-      margin: 0;
+      font-weight: 800;
       font-size: 2.5rem;
+      letter-spacing: 2px;
     }
 
     nav {
-      text-align: center;
-      margin: 1rem 0;
+      margin-top: 0.8rem;
     }
 
     nav a {
-      margin: 0 1rem;
+      color: white;
       text-decoration: none;
-      color: #d6336c;
-      font-weight: bold;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: color 0.3s;
     }
 
-    section {
-      max-width: 800px;
+    nav a:hover {
+      color: #ffdddf;
+    }
+
+    /* Hero con imagen grande */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      background-color: rgba(255, 75, 43, 0.75);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 1100px;
       margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    /* Sección de productos */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .product-card {
       background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
-    section h2 {
-      color: #d6336c;
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 25px rgba(255, 75, 43, 0.3);
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
+    .product-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 3px solid #ff4b2b;
+    }
+
+    .product-info {
+      padding: 1rem 1.2rem;
+    }
+
+    .product-info h3 {
+      margin-bottom: 0.5rem;
+      color: #ff4b2b;
+    }
+
+    .product-info p {
       font-size: 0.9rem;
-      color: #666;
+      color: #555;
+      margin-bottom: 1rem;
     }
+
+    .product-info span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ff416c;
+    }
+
+    /* Sección sobre la marca */
+    .about {
+      margin: 4rem 0;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      max-width: 450px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(255, 75, 43, 0.2);
+      flex: 1 1 400px;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+    }
+
+    .about-text h2 {
+      color: #ff4b2b;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+
+    .about-text p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .hero h2 {
+        font-size: 2rem;
+        padding: 0.7rem 1.5rem;
+      }
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about img, .about-text {
+        flex: 1 1 100%;
+      }
+    }
+
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Bienvenid@ a Mi Página Coqueta 🌸</h1>
-    <p>Una mezcla de dulzura, estilo y buen gusto</p>
+    <h1>RopaChida</h1>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Sobre mí</a>
-    <a href="#">Servicios</a>
-    <a href="#">Contacto</a>
-  </nav>
-
-  <section>
-    <h2>✨ Sobre Mí</h2>
-    <p>Hola, soy una persona creativa que ama los detalles lindos y el diseño coqueto. Me encanta crear espacios visuales agradables que hagan sonreír a quien los vea.</p>
+  <section class="hero">
+    <h2>¡Viste con estilo único!</h2>
   </section>
 
-  <section>
-    <h2>💼 Servicios</h2>
-    <ul>
-      <li>Diseño gráfico con estilo</li>
-      <li>Redes sociales cute</li>
-      <li>Asesoría de marca personal</li>
-    </ul>
-  </section>
+  <main class="container">
 
-  <section>
-    <h2>📬 Contacto</h2>
-    <p>¿Te gustó mi estilo? ¡Hablemos! Puedes escribirme a <a href="mailto:contacto@coquetapage.com">contacto@coquetapage.com</a></p>
-  </section>
+    <section id="productos">
+      <h2 style="color:#ff416c; margin-bottom:1rem; text-align:center;">Nuestros Productos</h2>
+      <div class="products">
+        <article class="product-card">
+          <img class="product-img" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Chaqueta moderna" />
+          <div class="product-info">
+            <h3>Chaqueta Urbana</h3>
+            <p>Perfecta para el frío y darle un toque cool a tu outfit diario.</p>
+            <span>$1,299 MXN</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-img" src="https://images.unsplash.com/photo-1520975915607-746062f7d637?auto=format&fit=crop&w=600&q=80" alt="Camiseta blanca básica" />
+          <div class="product-info">
+            <h3>Camiseta Básica</h3>
+            <p>Clásica y cómoda, ideal para combinar con cualquier estilo.</p>
+            <span>$399 MXN</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-img" src="https://images.unsplash.com/photo-1503342452485-86f7a1c1d3b0?auto=format&fit=crop&w=600&q=80" alt="Pantalón de mezclilla" />
+          <div class="product-info">
+            <h3>Pantalón de Mezclilla</h3>
+            <p>Duradero y moderno, un básico que nunca falla.</p>
+            <span>$899 MXN</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-img" src="https://images.unsplash.com/photo-1530845646647-f4b11ec86852?auto=format&fit=crop&w=600&q=80" alt="Vestido casual" />
+          <div class="product-info">
+            <h3>Vestido Casual</h3>
+            <p>Fresco y ligero, para que te veas espectacular en cualquier ocasión.</p>
+            <span>$1,199 MXN</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="nosotros" class="about">
+      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=700&q=80" alt="Sobre Nosotros" />
+      <div class="about-text">
+        <h2>Sobre RopaChida</h2>
+        <p>
+          En RopaChida creemos que cada persona merece un estilo que refleje su personalidad. 
+          Traemos las últimas tendencias con calidad y a precios accesibles para que siempre luzcas increíble. 
+          Nuestra pasión es ayudarte a expresar tu autenticidad a través de la moda.
+        </p>
+      </div>
+    </section>
+
+    <section id="contacto" style="text-align:center; margin:4rem 0;">
+      <h2 style="color:#ff416c; margin-bottom:1rem;">Contáctanos</h2>
+      <p>¿Tienes dudas o quieres saber más? Escríbenos a <a href="mailto:contacto@ropachida.com" style="color:#ff4b2b; font-weight:700;">contacto@ropachida.com</a></p>
+    </section>
+
+  </main>
 
   <footer>
-    © 2025 Mi Página Coqueta 🌸
+    &copy; 2025 RopaChida. Todos los derechos reservados.
   </footer>
 
 </body>
